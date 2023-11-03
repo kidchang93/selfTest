@@ -9,20 +9,17 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "MyViewServlet", value = "/myView.do")
-public class MyViewServlet extends HttpServlet{
+@WebServlet(name="MyViewServlet" ,value ="/myView.do")
+public class MyViewServlet extends HttpServlet {
 
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
+    String url = "myViewPage.jsp";  // forward할 url
 
+    // 사용자 처리
 
-      String url = "myViewPage.jsp";  // forward할 url
-      // 사용자 처리
-
-      RequestDispatcher rd = request.getRequestDispatcher(url);
-      rd.forward(request, response);
-
+    RequestDispatcher rd = request.getRequestDispatcher(url);
+    rd.forward(request, response);
   }
-
 
 }
